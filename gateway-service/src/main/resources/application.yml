@@ -1,0 +1,21 @@
+server:
+  port: 8068
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: gateway-service
+#  security.oauth2.resourceserver.jwt.jwk-set-uri: http://localhost:9999/.well-known/jwks.json
+
+logging:
+  level:
+    root: INFO
+    com.wenx.gatewayservice: TRACE
+    org.springframework.web: INFO
+    org.springframework.web.HttpLogging: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.cloud.gateway: debug

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenx.authservice.dao.Sys_userMapper">
+  <resultMap id="BaseResultMap" type="com.wenx.authservice.model.Sys_user">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="create_date" />
+    <result column="create_userid" jdbcType="VARCHAR" property="create_userid" />
+    <result column="del_date" jdbcType="TIMESTAMP" property="del_date" />
+    <result column="del_uerid" jdbcType="VARCHAR" property="del_uerid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wenx.authservice.model.Sys_userWithBLOBs">
+    <result column="access_token" jdbcType="LONGVARBINARY" property="access_token" />
+    <result column="refresh_token" jdbcType="LONGVARBINARY" property="refresh_token" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, password, nickname, mobile, email, create_date, create_userid, del_date, 
+    del_uerid, status
+  </sql>
+  <sql id="Blob_Column_List">
+    access_token, refresh_token
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wenx.authservice.model.Sys_userWithBLOBs">
+    insert into sys_user (id, username, password, 
+      nickname, mobile, email, 
+      create_date, create_userid, del_date, 
+      del_uerid, status, access_token, 
+      refresh_token)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{nickname,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{create_date,jdbcType=TIMESTAMP}, #{create_userid,jdbcType=VARCHAR}, #{del_date,jdbcType=TIMESTAMP}, 
+      #{del_uerid,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{access_token,jdbcType=LONGVARBINARY}, 
+      #{refresh_token,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wenx.authservice.model.Sys_userWithBLOBs">
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="create_date != null">
+        create_date,
+      </if>
+      <if test="create_userid != null">
+        create_userid,
+      </if>
+      <if test="del_date != null">
+        del_date,
+      </if>
+      <if test="del_uerid != null">
+        del_uerid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="access_token != null">
+        access_token,
+      </if>
+      <if test="refresh_token != null">
+        refresh_token,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="create_date != null">
+        #{create_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="create_userid != null">
+        #{create_userid,jdbcType=VARCHAR},
+      </if>
+      <if test="del_date != null">
+        #{del_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="del_uerid != null">
+        #{del_uerid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="access_token != null">
+        #{access_token,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="refresh_token != null">
+        #{refresh_token,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wenx.authservice.model.Sys_userWithBLOBs">
+    update sys_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="create_date != null">
+        create_date = #{create_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="create_userid != null">
+        create_userid = #{create_userid,jdbcType=VARCHAR},
+      </if>
+      <if test="del_date != null">
+        del_date = #{del_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="del_uerid != null">
+        del_uerid = #{del_uerid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="access_token != null">
+        access_token = #{access_token,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="refresh_token != null">
+        refresh_token = #{refresh_token,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wenx.authservice.model.Sys_userWithBLOBs">
+    update sys_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      create_date = #{create_date,jdbcType=TIMESTAMP},
+      create_userid = #{create_userid,jdbcType=VARCHAR},
+      del_date = #{del_date,jdbcType=TIMESTAMP},
+      del_uerid = #{del_uerid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      access_token = #{access_token,jdbcType=LONGVARBINARY},
+      refresh_token = #{refresh_token,jdbcType=LONGVARBINARY}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wenx.authservice.model.Sys_user">
+    update sys_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      create_date = #{create_date,jdbcType=TIMESTAMP},
+      create_userid = #{create_userid,jdbcType=VARCHAR},
+      del_date = #{del_date,jdbcType=TIMESTAMP},
+      del_uerid = #{del_uerid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

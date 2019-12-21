@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="auth-service" />
+        <module name="common" />
+        <module name="eureka-service" />
+        <module name="gateway-service" />
+        <module name="resource-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth-gateway" target="1.8" />
+      <module name="auth-service" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="common-service" target="1.8" />
+      <module name="core" target="1.8" />
+      <module name="eureka-service" target="1.8" />
+      <module name="gateway-service" target="1.8" />
+      <module name="resource-service" target="1.8" />
+      <module name="security" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
