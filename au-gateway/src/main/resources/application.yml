@@ -1,0 +1,27 @@
+server:
+  port: 12005
+  max-http-header-size: 10240
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: au-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user
+          uri: http://localhost:12001
+          predicates:
+            - Path=/user/**
+          filters:
+          - StripPrefix=1
+
+        - id: au
+          uri: http://localhost:12002
+          predicates:
+            - Path=/au/**
+          filters:
+          - StripPrefix=1

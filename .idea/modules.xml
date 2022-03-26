@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/au-domain/au-domain.iml" filepath="$PROJECT_DIR$/au-domain/au-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/au-gateway/au-gateway.iml" filepath="$PROJECT_DIR$/au-gateway/au-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/au-oauth/au-oauth.iml" filepath="$PROJECT_DIR$/au-oauth/au-oauth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/au-user/au-user.iml" filepath="$PROJECT_DIR$/au-user/au-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/auth-gateway.iml" filepath="$PROJECT_DIR$/auth-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
